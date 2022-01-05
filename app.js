@@ -12,19 +12,19 @@ class UssSchwarzenegger {
 }
  attack(target) {
         let ranNum = Math.random();
-        console.log(`Accuracy threshold is ${ranNum}`);
+        prompt(`Accuracy threshold is ${ranNum}`);
         if (ranNum < this.accuracy) {
-            console.log(`It's a direct hit!`);
+            prompt(`It's a direct hit!`);
             target.hull = target.hull - this.firepower;
-            console.log(`alien has ${target.hull} hull points left.`);
-            if (target.hull <= 0) {
-                console.log(`Ship Went Kaloo-ey!`);
-            }
+            prompt(`alien has ${target.hull} hull points left.`);
+        }else if (target.hull <= 0) {
+                prompt(`Ship Went Kaloo-ey!`);
         } else {
-            console.log(`you missed!`);
+            prompt(`you missed!`);
         }
     }
 }
+ 
    
 class AlienUfo {
     constructor(hull, firepower, accuracy){
@@ -34,21 +34,25 @@ class AlienUfo {
 }
 attack(target) {
         let ranNum = Math.random();
-        console.log(`Accuracy threshold is ${ranNum}`);
+        prompt(`Accuracy threshold is ${ranNum}`);
         if (ranNum < this.accuracy) {
-            console.log(`You've been hit!`);
+            prompt(`You've been hit!`);
             target.hull = target.hull - this.firepower;
-            console.log(`USS Schwarzenegger has ${target.hull} hull points left.`);
-            if (target.hull <= 0) {
-                console.log(`You have died!`);
-            }
+            prompt(`USS Schwarzenegger has ${target.hull} hull points left.`);
+        }else if (target.hull <= 0) {
+                prompt(`You have died!`);
         } else {
-            console.log(`You dodged the attack!`);
+            prompt(`You dodged the attack!`);
         }
     }
 }
-    
+
+
 
 
 //  prompt() an alert message
 // app should run in the DOM
+
+// Attach functions to buttons
+document.getElementById('nameBox1').onclick = UssSchwarzenegger;
+document.getElementById('nameBox2').onclick = AlienUfo;
